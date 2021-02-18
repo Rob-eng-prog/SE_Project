@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "autoprefixer": "^10.2.4",
+    "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "isomorphic-unfetch": "^3.1.0",
     "mongoose": "^5.11.15",
