@@ -3,16 +3,14 @@ import { useState, useEffect } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { useRouter } from 'next/router';
 
+
+
  const Sign = () => {
-  let [form,setForm] = useState({
-    name:"",
-    email:"",
-    password:""
-  });
-  let[submitted,setSubmitted] = useState(false);
+  const [form, setForm] = useState({ name: '', password: '', email: '' });
+  const [submitted,setSubmitted] = useState(false);
   const router = useRouter();
 
-  let handleSubmit = () => {
+  let handleSubmit = (e) => {
     e.preventDefault();
     validate();
     setSubmitted(true);
@@ -31,21 +29,21 @@ import { useRouter } from 'next/router';
   }
 
   const createUser = async () => {
-    console.log(form)
     try {
-        const res = await fetch('http://localhost:3000/api/users', {
-            method: 'POST',
-            headers: {
+      const res = await fetch('http://localhost:3000/api/notes', {
+          method: 'POST',
+          headers: {
               "Accept": "application/json",
               "Content-Type": "application/json"
-            },
-            body: JSON.stringify(form)
-        })
-        router.push("/");
-    } catch (error) {
-        console.log(error);
+          },
+          body: JSON.stringify(form)
+      })
+      router.push("/");
+  } catch (error) {
+      console.log(error);
+  }
     }
-    }
+
 
 
 
