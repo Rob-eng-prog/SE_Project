@@ -6,42 +6,38 @@ import { useRouter } from 'next/router';
 
 
  const Sign = () => {
-  const [form, setForm] = useState({ name: '', password: '', email: '' });
-  const [submitted,setSubmitted] = useState(false);
-  const router = useRouter();
+    const [form, setForm] = useState({ title: '', description: '' });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
+    const router = useRouter();
 
-  let handleSubmit = (e) => {
-    e.preventDefault();
-    validate();
-    setSubmitted(true);
-    createUser();
-  }
 
-  let handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]:[e.target.value]
-    })
-  }
+    const createNote = async () => {
+        try {
+            const res = await fetch('http://localhost:3000/api/users', {
+                method: 'POST',
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(form)
+            })
+            router.push("/");
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
-  const validate = () => {
-    console.log("validate function")
-  }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        createNote();
+    }
 
-  const createUser = async () => {
-    try {
-      const res = await fetch('http://localhost:3000/api/notes', {
-          method: 'POST',
-          headers: {
-              "Accept": "application/json",
-              "Content-Type": "application/json"
-          },
-          body: JSON.stringify(form)
-      })
-      router.push("/");
-  } catch (error) {
-      console.log(error);
-  }
+    const handleChange = (e) => {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        })
     }
 
 
