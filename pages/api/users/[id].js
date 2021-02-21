@@ -12,8 +12,8 @@ export default async (req, res) => {
     switch (method) {
         case 'GET':
             try {
-                const user = await User.findById(id);
-
+                //const user = await User.findById(id);
+                const user = await User.findOne({name: new RegExp('^'+id+'$', "i")});
                 if (!user) {
                     return res.status(400).json({ success: false });
                 }

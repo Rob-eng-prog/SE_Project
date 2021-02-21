@@ -15,7 +15,7 @@ import fetch from 'isomorphic-unfetch';
 }
 
 Home.getInitialProps = async () => {
-  const res = await fetch('http://localhost:3000/api/users');
+  const res = await fetch('http://localhost:3000/api/users'); //GET Request
   const { data } = await res.json();
 
   return { users: data }

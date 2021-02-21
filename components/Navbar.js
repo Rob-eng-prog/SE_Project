@@ -1,5 +1,4 @@
 import Link from 'next/link';
-//import "tailwindcss/tailwind.css";
 
 const Navbar = () => (
     <nav className = "flex flex-row justify-around bg-red-400 text-gray-300">
