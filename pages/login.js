@@ -12,7 +12,7 @@ import { useRouter } from 'next/router';
     const router = useRouter();
 
 
-    const createNote = async () => {
+    const verifyUser = async () => {
         try {
             const res = await fetch(`http://localhost:3000/api/users/${form.name}`)
             console.log(res.status)
@@ -27,7 +27,7 @@ import { useRouter } from 'next/router';
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        createNote();
+        verifyUser();
     }
 
     const handleChange = (e) => {

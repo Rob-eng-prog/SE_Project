@@ -10,17 +10,17 @@ const Navbar = () => (
             </Link>
         </li>
         <li className = "p-2 m-2 hover:text-white">
-            <Link href="/">
+            <Link href="/account">
                 <a>Account</a>
             </Link>
         </li>
         <li className = "p-2 m-2 hover:text-white">
-            <Link href="/">
+            <Link href="/about">
                 <a>About</a>
             </Link>
         </li>
         <li className = "p-2 m-2 hover:text-white">
-            <Link href="/">
+            <Link href="/login">
                 <a>Login</a>
             </Link>
         </li>
