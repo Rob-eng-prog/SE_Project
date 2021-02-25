@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const UserSchema = new mongoose.Schema({
+const UserSchema = new Schema({
     name: {
         type: String,
         required: [true, 'Please add a name'],
@@ -21,8 +22,8 @@ const UserSchema = new mongoose.Schema({
         default: new Date()
     },
     post: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Post'
+            type: Schema.Types.ObjectId,
+            ref: 'Post'
     }]
 })
 
