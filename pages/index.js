@@ -1,7 +1,9 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
 
  const Home = ({posts}) => {
+  let idLink = "/" + posts._id;
   posts.map(post => console.log(post))
   return (
     <div>
