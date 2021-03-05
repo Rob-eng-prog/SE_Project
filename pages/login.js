@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
+import { useCookies } from "react-cookie"
 import fetch from 'isomorphic-unfetch';
 import { useRouter } from 'next/router';
 
@@ -7,6 +8,7 @@ import { useRouter } from 'next/router';
 
  const Login = () => {
     const [form, setForm] = useState({ name: '', password: '' });
+    const [cookie, setCookie] = useCookies(["user"])
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
     const router = useRouter();
@@ -18,8 +20,11 @@ import { useRouter } from 'next/router';
             console.log(res.status)
             const { data } = await res.json();
             localStorage.setItem('Current_Id', data._id);
+            localStorage.setItem('Current_Name', data.name);
             let cur = localStorage.getItem('Current_Id');
             setSubmitted(true);
+            router.reload();
+            //router.push('/');
         } catch (error) {
             console.log(error);
         }

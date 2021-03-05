@@ -1,8 +1,21 @@
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
+//const account = typeof window !== undefined ? "/account": "/login";
 
-const Navbar = () => (
+
+
+const Navbar = ({data}) => {
+    const [pname, Setpname] = useState('');
+    const [name, Setname] = useState('');
+    useEffect((() => {
+        Setpname("/account/"+ localStorage.getItem("Current_Name"))
+        Setname(localStorage.getItem("Current_Name"))
+    }),[]);
+
+    return(
     <nav className = "flex flex-row justify-around bg-red-400 text-gray-300">
     <h1 className = "p-2 m-2 text-3xl text-white"> Platts <span className="text-red-800 italic">Connect</span></h1>
+    <p> current user {name}</p>
     <ul className = "flex justify-self-end">
         <li className = "p-2 m-2 hover:text-white">
             <Link href = "/">
@@ -10,7 +23,7 @@ const Navbar = () => (
             </Link>
         </li>
         <li className = "p-2 m-2 hover:text-white">
-            <Link href="/account">
+            <Link href= {pname}>
                 <a>Account</a>
             </Link>
         </li>
@@ -35,6 +48,8 @@ const Navbar = () => (
         </li>
     </ul>
 </nav>
-)
+)}
+
+
 
 export default Navbar;

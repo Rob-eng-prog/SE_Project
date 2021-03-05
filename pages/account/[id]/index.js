@@ -2,7 +2,7 @@ import fetch from 'isomorphic-unfetch';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-const user = ({ user }) => {
+const SingleUser = ({ user }) => {
     const [confirm, setConfirm] = useState(false);
     const [isDeleting, setIsDeleting] = useState(false);
     const router = useRouter();
@@ -40,6 +40,7 @@ const user = ({ user }) => {
                 <>
                     <h1>{user.name}</h1>
                     <p>{user.email}</p>
+                    <h1 className="text-4xl p-2 m-2 bg-gray-700">My post</h1>
                     {user.post.map(post => {
                         return(
                             <div key={post._id} className="p-3 border-black">
@@ -58,11 +59,11 @@ const user = ({ user }) => {
     )
 }
 
-user.getInitialProps = async ({ query: { id } }) => {
+SingleUser.getInitialProps = async ({ query: { id } }) => {
     const res = await fetch(`http://localhost:3000/api/users/${id}`);
     const { data } = await res.json();
 
     return { user: data }
 }
 
-export default user;
+export default SingleUser;
