@@ -1,6 +1,5 @@
 import dbConnect from '../../../utils/dbConnect';
 import User from '../../../models/User';
-import Post from '../../../models/Post';
 
 dbConnect();
 
@@ -14,8 +13,7 @@ export default async (req, res) => {
         case 'GET':
             try {
                 //const user = await User.findById(id);
-                const user = await User.findOne({name: new RegExp('^'+id+'$', "i")}).populate('post')
-                //console.log(user)
+                const user = await User.findOne({name: new RegExp('^'+id+'$', "i")});
                 if (!user) {
                     return res.status(400).json({ success: false });
                 }

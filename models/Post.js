@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-const PostSchema = new Schema({
+const PostSchema = new mongoose.Schema({
     author: {
         type: String,
         required: [true, 'Please add a author'],
@@ -36,13 +35,8 @@ const PostSchema = new Schema({
         type: Number
     },
     comments: [{
-        text: { 
-            type: String
-        },
-        likes: {
-            type: Number
-        },
-        poster: {
+        text: String,
+        postedBy: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
         }
