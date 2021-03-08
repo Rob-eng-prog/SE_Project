@@ -6,7 +6,9 @@ import { useState, useEffect } from 'react';
 
 const Navbar = ({data}) => {
     const [pname, Setpname] = useState('');
-    const [name, Setname] = useState('');
+    const [name, Setname] = useState(''); //name state
+    
+    //soon as component/page loads 
     useEffect((() => {
         Setpname("/account/"+ localStorage.getItem("Current_Name"))
         Setname(localStorage.getItem("Current_Name"))
