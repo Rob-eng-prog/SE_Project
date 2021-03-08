@@ -60,6 +60,12 @@ import { useRouter } from 'next/router';
                     <button className="m-auto w-full bg-red-800 rounded-md text-white mt-3 mb-2 h-10" type="submit">Join</button>
       </form> 
       }
+      <body>If you already have an account, go login here.
+      <li>
+              <Link href="/login"><a className="nav-link">Login</a></Link>
+            </li>
+      </body>
+                
                 
     </section>
     
