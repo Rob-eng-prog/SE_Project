@@ -8,5 +8,8 @@ export default function FourOhFour() {
         Go back to post
       </a>
     </Link>
+    <div className= "container bg-grey-200">
+    
+    </div>
   </>
 }

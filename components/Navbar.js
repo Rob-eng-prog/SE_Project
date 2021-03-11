@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+ 
+ 
 //const account = typeof window !== undefined ? "/account": "/login";
 
 
@@ -14,10 +16,22 @@ const Navbar = ({data}) => {
         Setname(localStorage.getItem("Current_Name"))
     }),[]);
 
+    const Logout = () => {
+        localStorage.clear();
+        window.location.reload();
+    }
+
     return(
     <nav className = "flex flex-row justify-around bg-red-400 text-gray-300">
     <h1 className = "p-2 m-2 text-3xl text-white"> Platts <span className="text-red-800 italic">Connect</span></h1>
-    <p> current user {name}</p>
+    <div>{
+        name?
+        <button onClick = {Logout}>
+                <p>Logout of account {name}</p>
+        </button>
+        :
+        <p> No current User </p>
+    }</div>
     <ul className = "flex justify-self-end">
         <li className = "p-2 m-2 hover:text-white">
             <Link href = "/">
