@@ -1,9 +1,6 @@
 import Link from "next/link";
-import { useState } from "react";
 import styles from "../styles/home.module.css";
 export default function HomeItem({ post }) {
-  const [comment, setComment] = useState("");
-  console.log('----', comment)
   return (
     <div className={styles.container}>
       <Link href={`/post/[id]`} as={`/post/${post._id}`}>
@@ -13,6 +10,7 @@ export default function HomeItem({ post }) {
           <h1 className={styles.description}>{post.content}</h1>
         </div>
       </Link>
+      {/**
       <div className={styles.form}>
         <input
           type="text"
@@ -23,13 +21,14 @@ export default function HomeItem({ post }) {
         />
         <button className={styles.btn}>Comment</button>
       </div>
-      <div className={styles.comment}>
+    <div className={styles.comment}>
         {post?.comments?.slice(0, 3).map((item, index) => (
           <p key={index} className={styles.comText}>
-            {item.text}
-          </p>
-        ))}
-      </div>
+      {item.text}
+      </p>
+    ))}
+    </div>
+  */}
     </div>
   );
 }

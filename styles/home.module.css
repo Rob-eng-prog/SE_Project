@@ -54,9 +54,10 @@
 }
 .comText {
   font-size: 16px;
-  color: #777;
-  border-bottom: 1px solid #f27071;
-  padding: 10px 0px;
+  color: #fff;
+  background-color: #f27071;
+  padding: 10px;
+  margin: 5px 0px;
 }
 .imgContainer {
   flex: 1;
