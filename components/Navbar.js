@@ -49,6 +49,11 @@ const Navbar = ({data}) => {
             </Link>
         </li>
         <li className = "p-2 m-2 hover:text-white">
+            <Link href="/news">
+                <a>News</a>
+            </Link>
+        </li>
+        <li className = "p-2 m-2 hover:text-white">
             <Link href="/login">
                 <a>Login</a>
             </Link>
