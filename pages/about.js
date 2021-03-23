@@ -1,184 +1,91 @@
-<<<<<<< HEAD
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { useRouter } from 'next/router';
+import { Grid,Typography } from "@material-ui/core";
+import FacebookIcon from '@material-ui/icons/Facebook';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import InstagramIcon from '@material-ui/icons/Instagram';
+const demoTeam = [
+  {
+    name:"Kervens Jasmin",
+    image:"https://picsum.photos/200/300",
+    profession:"Student",
+    facebookUrl:"https://picsum.photos/200/300",
+    instaUrl:"",
+    twitterUrl:"https://picsum.photos/200/300",
+    bio:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+  },
+  {
+    name:"Kirubel Zergaw",
+    image:"https://picsum.photos/200/300",
+    profession:"Student",
+    facebookUrl:"https://picsum.photos/200/300",
+    instaUrl:"https://picsum.photos/200/300",
+    twitterUrl:"https://picsum.photos/200/300",
+    bio:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 
+  },
+  {
+    name:"Levy Sanon",
+    image:"https://picsum.photos/200/300",
+    profession:"Student",
+    facebookUrl:"https://picsum.photos/200/300",
+    instaUrl:"https://picsum.photos/200/300",
+    twitterUrl:"https://picsum.photos/200/300",
+    bio:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 
+  },
+  {
+    name:"Robel Hagos",
+    image:"https://picsum.photos/200/300",
+    profession:"Student",
+    facebookUrl:"https://picsum.photos/200/300",
+    instaUrl:"https://picsum.photos/200/300",
+    twitterUrl:"https://picsum.photos/200/300",
+    bio:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+
+  }
+]
+function initialize(){
+  return demoTeam
+}
  const About = () => {
-  import team1 from "SE_Project/public/goku.jpg";
-  import team2 from "SE_Project/public/goku.jpg";
-  import team3 from "SE_Project/public/goku.jpg";
-  import team4 from "SE_Project/public/goku.jpg";
-    
-  const useStyles = makeStyles(styles);
-  
-  export default function TeamSection() {
-      const classes = useStyles();
-      const imageClasses = classNames(
-          classes.imgRaised,
-          classes.imgRoundedCircle,
-          classes.imgFluid
-      );
-      return (
-          <div className={classes.section}>
-              <h2 className={classes.title}>HERE IS THE TEAM BEHIND THE PROJECT</h2>
-              <div>
-                  <GridContainer>
-                      <GridItem xs={12} sm={12} md={4}>
-                          <Card plain>
-                              <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                                  <img src={team1} alt="..." className={imageClasses} />
-                              </GridItem>
-                              <h4 className={classes.cardTitle}>
-                                  Robel H.
-                                  <br />
-                                  <small className={classes.smallTitle}>Model</small>
-                              </h4>
-                              <CardBody>
-                                  <p className={classes.description}>
-                                      You can write here details about one of your team members. You
-                                      can give more details about what they do. Feel free to add
-                                      some <a href="">links</a> for people to be able to
-                                      follow them outside the site.
-                                  </p>
-                              </CardBody>
-                              <CardFooter className={classes.justifyCenter}>
-                                  <Button
-                                      justIcon
-                                      color="transparent"
-                                      className={classes.margin5}
-                                  >
-                                      <i className={classes.socials + " fab fa-linkedin"} />
-                                  </Button>
-                                  <Button
-                                      justIcon
-                                      color="transparent"
-                                      className={classes.margin5}
-                                  >
-                                      <i className={classes.socials + " fab fa-facebook"} />
-                                  </Button>
-                              </CardFooter>
-                          </Card>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={4}>
-                          <Card plain>
-                              <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                                  <img src={team2} alt="..." className={imageClasses} />
-                              </GridItem>
-                              <h4 className={classes.cardTitle}>
-                                  Kervens J.
-                                  <br />
-                                  <small className={classes.smallTitle}>Programmer</small>
-                              </h4>
-                              <CardBody>
-                                  <p className={classes.description}>
-                                      You can write here details about one of your team members. You
-                                      can give more details about what they do. Feel free to add
-                                      some <a href="#">links</a> for people to be able to
-                                      follow them outside the site.
-                                  </p>
-                              </CardBody>
-                              <CardFooter className={classes.justifyCenter}>
-                                  <Button
-                                      justIcon
-                                      color="transparent"
-                                      className={classes.margin5}
-                                  >
-                                      <i className={classes.socials + " fab fa-linkedin"} />
-                                  </Button>
-                              </CardFooter>
-                          </Card>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={4}>
-                          <Card plain>
-                              <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                                  <img src={team3} alt="..." className={imageClasses} />
-                              </GridItem>
-                              <h4 className={classes.cardTitle}>
-                                  Kirubel Z.
-                                  <br />
-                                  <small className={classes.smallTitle}>Model</small>
-                              </h4>
-                              <CardBody>
-                                  <p className={classes.description}>
-                                      You can write here details about one of your team members. You
-                                      can give more details about what they do. Feel free to add
-                                      some <a href="#">links</a> for people to be able to
-                                      follow them outside the site.
-                                  </p>
-                              </CardBody>
-                              <CardFooter className={classes.justifyCenter}>
-                                  <Button
-                                      justIcon
-                                      color="transparent"
-                                      className={classes.margin5}
-                                  >
-                                      <i className={classes.socials + " fab fa-linkedin"} />
-                                  </Button>
-                              </CardFooter>
-                          </Card>
-                      </GridItem>
-                      <GridItem xs={12} sm={12} md={4}>
-                          <Card plain>
-                              <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                                  <img src={team4} alt="..." className={imageClasses} />
-                              </GridItem>
-                              <h4 className={classes.cardTitle}>
-                                  Levy S
-                                  <br />
-                                  <small className={classes.smallTitle}>Model</small>
-                              </h4>
-                              <CardBody>
-                                  <p className={classes.description}>
-                                      You can write here details about one of your team members. You
-                                      can give more details about what they do. Feel free to add
-                                      some <a href="#">links</a> for people to be able to
-                                      follow them outside the site.
-                                  </p>
-                              </CardBody>
-                              <CardFooter className={classes.justifyCenter}>
-                                  <Button
-                                      justIcon
-                                      color="transparent"
-                                      className={classes.margin5}
-                                  >
-                                      <i className={classes.socials + " fab fa-linkedin"} />
-                                  </Button>
-                              </CardFooter>
-                          </Card>
-                      </GridItem>
-                  </GridContainer>
-              </div>
-          </div>
-      );
-  }    
-
-
-
-
-  return(
-    <h1>About page</h1>
+    const [team, setTeam] = useState(initialize());
+  console.log("team",team)
+  return(<div className="p-2">
+    <div className="mb-8">
+      <Typography variant={"h4"} className="text-center fw-bold text-3xl" style={{marginBottom:"5px"}}>Why We Exist ?</Typography>
+      <Typography  variant={"body2"} className="text-center">We are offering another view of the forum aspect, more focused on the SUNY Plattsburgh Community. The Web-app will be more driven towards helping the students and peers to interact on another level, allowing them to have answers to their questions from peers, faster at the tip of their fingers.</Typography>
+    </div>
+    <div className="mb-8">
+      <Typography variant={"h4"} className="text-center fw-bold text-3xl" style={{marginBottom:"5px"}}>THIS IS OUR TEAM</Typography>
+      <div className="container-fluid ">
+        <Grid container> 
+          {team.map((item,index)=>{
+            return <Grid item lg={3} md={3} sm={6} xs={12}  className="text-center p-3" key={index}>
+            <img className="img-fluid" src={item.image} style={{width:"150px",height:"150px",borderRadius:"50%",margin:"auto"}}></img>
+            <Typography variant={"h6"} className="fw-bold text-2xl">{item.name}</Typography>
+            <Typography variant={"body1"} style={{marginBottom:"15px"}}>{item.profession}</Typography>
+            <Typography variant={"body2"}className="text-center" style={{color:"gray"}}>{item.bio}</Typography>
+            <div className="d-flex mt-8">
+              {item.twitterUrl.length !== 0 && <TwitterIcon style={{color:"gray",margin:"5px"}} onClick={()=>{
+                window.location(item.twitterUrl)
+              }}/>}
+              {item.facebookUrl.length !== 0 && <FacebookIcon style={{color:"gray",margin:"5px"}} onClick={()=>{
+                window.location(item.facebookUrl)
+              }}/>}
+              {item.instaUrl.length !== 0 && <InstagramIcon style={{color:"gray",margin:"5px"}}onClick={()=>{
+                window.location(item.instaUrl)
+              }}/>}
+            </div>
+          </Grid>
+          })}
+        </Grid>
+      </div>
+    </div>
+    </div>
   )
 }
 
-=======
-import Head from 'next/head';
-import { useState, useEffect } from 'react';
-import fetch from 'isomorphic-unfetch';
-import { useRouter } from 'next/router';
-
-
- const About = () => {
-    
-
-
-
-
-  return(
-    <h1>About page</h1>
-  )
-}
-
->>>>>>> main
 export default About;
