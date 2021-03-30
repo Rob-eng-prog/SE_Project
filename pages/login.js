@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useCookies } from "react-cookie"
 import fetch from 'isomorphic-unfetch';
 import { useRouter } from 'next/router';
-
+import Link from 'next/link';
 
 
  const Login = () => {
