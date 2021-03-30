@@ -9,7 +9,7 @@ import Link from 'next/link';
  const Post = () => {
     const[userName, setUser] = useState("");
     const [form, setForm] = useState({ 
-        author: UserName, 
+        author: userName, 
         title: "", 
         content: "",
         imgs: [],
@@ -21,7 +21,7 @@ import Link from 'next/link';
     const router = useRouter();
 
     useEffect((() => {
-        SetUser(localStorage.getItem("Current_Name"))
+        setUser(localStorage.getItem("Current_Name"))
     }),[]);
 
     const createPost = async () => {
@@ -59,24 +59,26 @@ import Link from 'next/link';
 
   return(
     <section>{
-      {userName} != ""
-      ? 
-      <form className="m-3" onSubmit={handleSubmit}>
-        <h1 className="text-center text-2xl font-bold mb-6">Post</h1>
-        <label className="text-sm" htmlFor="username">Enter Your Post</label><br/>
-        <input className="block px-1 mt-2 w-full text-gray-500 appearance-none border-b-2 border-gray-100 focus:border-gray-400 hover:border-gray-800 " onChange={handleChange} type="text" id="name" name="name" placeholder="new post" /><br/>
-        <button className="m-auto w-full bg-red-800 rounded-md text-white mt-3 mb-2 h-10" type="submit">Post</button>
-      </form>
-      : 
-      <h1>Log in</h1>
-      }
-      <body>If you want to go to the home page, click below.
-      <li>
-              <Link href="/"><a className="nav-link">Home</a></Link>
-            </li>
-      </body>
-                
-    </section>
+        submitted
+        ? <h1>Done</h1>
+        :
+        <form className="m-3" onSubmit={handleSubmit}>
+                    <h1 className="text-center text-2xl font-bold mb-6">Make a Post</h1>
+                    <label className="text-sm" htmlFor="author">Author</label><br/>
+                    <input className="block px-1 mt-2 w-full text-gray-500 appearance-none border-b-2 border-gray-100 focus:border-gray-400 hover:border-gray-800 " onChange={handleChange} type="text" id="author" name="author" placeholder="Author" /><br/>
+                    <label className="text-sm" htmlFor="title">Title</label><br/>
+                    <input className="block px-1 mt-2 w-full text-gray-500 appearance-none border-b-2 border-gray-100 focus:border-gray-400 hover:border-gray-800 " onChange={handleChange} type="text" id="title" name="title" placeholder="Title" /><br/>
+                    <label className="text-sm" htmlFor="content">Content</label><br/>
+                    <input className="block px-1 mt-2 w-full text-gray-500 appearance-none border-b-2 border-gray-100 focus:border-gray-400 hover:border-gray-800" onChange={handleChange} type="text" id="content" name="content" placeholder="Content" /><br/>
+                    <button className="m-auto w-full bg-red-800 rounded-md text-white mt-3 mb-2 h-10" type="submit">Post</button>
+      </form> 
+        
+
+        }
+                  
+      </section>
+      
+    
     
     
   )
@@ -87,4 +89,3 @@ import Link from 'next/link';
 
 
 export default Post;
-
