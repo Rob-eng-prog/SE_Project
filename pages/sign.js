@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 
 
