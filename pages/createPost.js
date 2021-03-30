@@ -48,6 +48,7 @@ import Link from 'next/link';
     const handleChange = (e) => {
         setForm({
             ...form,
+            author: userName,
             [e.target.name]: e.target.value
         })
     }
@@ -64,8 +65,6 @@ import Link from 'next/link';
         :
         <form className="m-3" onSubmit={handleSubmit}>
                     <h1 className="text-center text-2xl font-bold mb-6">Make a Post</h1>
-                    <label className="text-sm" htmlFor="author">Author</label><br/>
-                    <input className="block px-1 mt-2 w-full text-gray-500 appearance-none border-b-2 border-gray-100 focus:border-gray-400 hover:border-gray-800 " onChange={handleChange} type="text" id="author" name="author" placeholder="Author" /><br/>
                     <label className="text-sm" htmlFor="title">Title</label><br/>
                     <input className="block px-1 mt-2 w-full text-gray-500 appearance-none border-b-2 border-gray-100 focus:border-gray-400 hover:border-gray-800 " onChange={handleChange} type="text" id="title" name="title" placeholder="Title" /><br/>
                     <label className="text-sm" htmlFor="content">Content</label><br/>
