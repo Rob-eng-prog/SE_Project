@@ -2,7 +2,7 @@ import fetch from "isomorphic-unfetch";
 import HomeItem from "../components/HomeItem";
 
 const Home = ({ posts }) => {
-  posts.map((post) => console.log(post));
+  console.log('---da', posts)
   return (
     <div>
       {posts.map((post) => {

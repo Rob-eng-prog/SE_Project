@@ -5,16 +5,20 @@ import styles from "../../styles/home.module.css";
 const Detail = ({ detail, id }) => {
   const [comment, setComment] = useState("");
 
-  // comment 
+  // comment
   const _comment = async () => {
+    let user = localStorage.getItem("user");
     if (comment === "") {
       alert("Write comment...");
+    } else if (!user) {
+      alert("First login!");
     } else {
       let data = {
         comments: [
           ...detail.comments,
           {
             text: comment,
+            commentBy: user,
           },
         ],
       };
@@ -28,8 +32,8 @@ const Detail = ({ detail, id }) => {
 
       if (res.status === 200) {
         location.reload();
-      }else {
-        alert('Something went wrong! Please try again!')
+      } else {
+        alert("Something went wrong! Please try again!");
       }
     }
   };
@@ -58,9 +62,10 @@ const Detail = ({ detail, id }) => {
       </div>
       <div className={styles.comment}>
         {detail?.comments?.map((item, index) => (
-          <p key={index} className={styles.comText}>
-            {item.text}
-          </p>
+          <div key={index} className={styles.comText}>
+            <p>By: {item?.commentBy}</p>
+            <p>{item.text}</p>
+          </div>
         ))}
       </div>
     </div>
