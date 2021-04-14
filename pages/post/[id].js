@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import fetch from "isomorphic-unfetch";
 import styles from "../../styles/home.module.css";
+import { useRouter } from "next/router";
 
 const Detail = ({ detail, id }) => {
+  const router = useRouter();
   const [comment, setComment] = useState("");
+  const refreshData = () => {
+    router.replace(router.asPath);
+  };
 
   // comment
   const _comment = async () => {
@@ -31,7 +36,8 @@ const Detail = ({ detail, id }) => {
       });
 
       if (res.status === 200) {
-        location.reload();
+        refreshData();
+        setComment("");
       } else {
         alert("Something went wrong! Please try again!");
       }
@@ -42,10 +48,10 @@ const Detail = ({ detail, id }) => {
       <h1 className={styles.title}>{detail?.title}</h1>
       <p className={styles.author}> Author: {detail?.author}</p>
       <div className={styles.imgContainer}>
-        <img
+        {/* <img
           src="https://media.istockphoto.com/photos/pakistan-monument-islamabad-picture-id535695503?k=6&m=535695503&s=612x612&w=0&h=uP8aDK4xlfjk3kEiyr9wwUiuh80UwAiICweFpiBDosk="
           className={styles.image}
-        />
+        /> */}
       </div>
       <h1 className={styles.description}>{detail?.content}</h1>
       <div className={styles.form}>

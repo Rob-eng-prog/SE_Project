@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const _logout = () => {
-  localStorage.removeItem("Current_Id");
+  localStorage.clear();
   location.reload();
 };
 const Navbar = () => {

@@ -1,15 +1,22 @@
 import Link from "next/link";
 import styles from "../styles/home.module.css";
-export default function HomeItem({ post }) {
+export default function HomeItem({ post, onLike }) {
   return (
     <div className={styles.container}>
       <Link href={`/post/[id]`} as={`/post/${post._id}`}>
         <div>
           <h1 className={styles.title}>{post.title}</h1>
           <p className={styles.author}> Author: {post.author}</p>
+          <p className={styles.author}> Like: {post.likes}</p>
           <h1 className={styles.description}>{post.content}</h1>
         </div>
       </Link>
+      <button
+        className={styles.like}
+        onClick={() => onLike(post._id, post.likes)}
+      >
+        Like
+      </button>
       {/**
       <div className={styles.form}>
         <input
