@@ -4,14 +4,19 @@ import HomeItem from '../components/HomeItem'
 import fetch from 'isomorphic-unfetch';
 import { useState, useEffect } from 'react';
 
- const Home = ({prePosts}) => {
-  const[posts, setPosts] = useState(prePosts);
+ const Home = ({posts}) => {
   const[sorting, setSorting] = useState("default")
-  //FLITER
   const[filtering, setFiltering] = useState("default")
+  const[logged, setLogged] = useState(false)
   //let idLink = "/" + posts._id;
   useEffect(async() => {
-   console.log("changed")
+   //console.log("sorted")
+   if(localStorage.getItem("Current_Name") === null){
+    setLogged(false)
+  }
+  else{
+    setLogged(true)
+  }
   },[sorting, filtering]);
   const orderPost = (e) => {
     const val = e.target.value;
@@ -27,6 +32,7 @@ import { useState, useEffect } from 'react';
       setSorting("low")
     }
   }
+
   const filterPost = (e) => {
     const val = e.target.value;
     if(val == "default"){
@@ -56,6 +62,23 @@ import { useState, useEffect } from 'react';
           <option value="meta">Meta</option>
           <option value="rant">Rant</option>
         </select>
+      </div>
+      <div>
+        {logged
+        ?
+        <div className = "p-2 m-2 bg-red-500 text-black">
+          <Link href="/createPost">
+              <a>Create a Post</a>
+          </Link>
+        </div>
+    :
+        <div>
+          <p className = "pb-2">You must be logged in to create a Post</p>
+          <Link href="/login">
+            <a className = "p-2 pb-3 m-2 hover:text-red bg-red-500">Login</a>
+          </Link>
+        </div>
+    }
       </div>
       {posts.
       sort((a,b) => {
@@ -90,7 +113,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      prePosts: data,
+      posts: data,
     },
   };
 }
