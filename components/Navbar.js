@@ -12,8 +12,13 @@ const Navbar = ({data}) => {
     
     //soon as component/page loads 
     useEffect((() => {
-        Setpname("/account/"+ localStorage.getItem("Current_Name"))
-        Setname(localStorage.getItem("Current_Name"))
+        if(localStorage.getItem("Current_Name") === null){
+            Setpname("/account")
+        }
+        else{
+            Setpname("/account/"+ localStorage.getItem("Current_Name"))
+            Setname(localStorage.getItem("Current_Name"))
+        }
     }),[]);
 
     const Logout = () => {

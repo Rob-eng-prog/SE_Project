@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import HomeItem from '../components/HomeItem'
 import fetch from 'isomorphic-unfetch';
 
  const Home = ({posts}) => {
