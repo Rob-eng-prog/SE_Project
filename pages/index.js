@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from "next/router";
 import HomeItem from '../components/HomeItem'
 import fetch from 'isomorphic-unfetch';
 import { useState, useEffect } from 'react';
@@ -8,7 +9,14 @@ import { useState, useEffect } from 'react';
   const[sorting, setSorting] = useState("default")
   const[filtering, setFiltering] = useState("default")
   const[logged, setLogged] = useState(false)
+  const router = useRouter();
+  
+  const refreshData = () => {
+    router.replace(router.asPath);
+  };
+
   //let idLink = "/" + posts._id;
+
   useEffect(async() => {
    //console.log("sorted")
    if(localStorage.getItem("Current_Name") === null){
@@ -42,7 +50,7 @@ import { useState, useEffect } from 'react';
       }
     }
   };
-  
+
   const orderPost = (e) => {
     const val = e.target.value;
     if(val == "default"){
@@ -126,7 +134,7 @@ import { useState, useEffect } from 'react';
         }
       })
       .map((post) => {
-        return <HomeItem key={post._id} post={post} />;
+        return <HomeItem key={post._id} post={post} onLike={_like} />;
       })}
     </div>
   );
