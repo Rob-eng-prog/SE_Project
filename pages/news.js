@@ -26,15 +26,15 @@ import fetch from 'isomorphic-unfetch';
 News.getInitialProps = async () => {
   const url = 'https://newsapi.org/v2/everything?' +
   'q= Suny Plattsburgh&' +
-  'from=2021-001-01&'+
-  'to=2021-03-21&'+
+  'from=2000-001-01&'+
+  'to=2021-04-27&'+
   'sortBy=popularity&' +
   'language=en&'+
   'apiKey=fe513d21860c4e3381b8ae478774e157';
   const res = await fetch(url); //GET Request
   const data = await res.json();
-
+  console.log(data)
   return { news: data }
 }
 
-export default News;
+export default News; 
