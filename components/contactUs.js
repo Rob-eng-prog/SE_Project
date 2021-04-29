@@ -9,19 +9,12 @@ init("user_9N61N11dP4hblxi4kmnxx"); //added
 
 
 
-import './ContactUs';
+const Contact = () => {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
 
-
-    const Contact = () => {
-     const [name, setName] = useState("");
-     const [email, setEmail] = useState("");
-     const [message, setMessage] = useState("");
-
-
-
-
-    //export default function Contact() {
-        function sendEmail(e) {
+    const sendEmail = (e) => {
             e.preventDefault();
 
             emailjs.sendForm('service_zt8dzx9', 'template_045q5jk', e.target, 'user_9N61N11dP4hblxi4kmnxx')
@@ -109,11 +102,9 @@ import './ContactUs';
   )
 
 }
-
-
-
-
 export default Contact;
+
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
