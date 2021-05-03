@@ -7,8 +7,14 @@ export default function HomeItem({ post, onLike }) {
         <div>
           <h1 className={styles.title}>{post.title}</h1>
           <p className={styles.author}> Author: {post.author}</p>
-          <p className={styles.author}> Like: {post.likes}</p>
+          <p className={styles.author}> Likes: {post.likes}</p>
           <h1 className={styles.description}>{post.content}</h1>
+          <div>
+            <p>tags:</p>
+            {post.tags.map((tag) => {
+        return <p>{tag}</p>;
+      })}
+          </div>
         </div>
       </Link>
       <button
