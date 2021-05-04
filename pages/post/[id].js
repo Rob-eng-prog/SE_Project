@@ -27,6 +27,7 @@ const Detail = ({ detail, id }) => {
           },
         ],
       };
+      console.log('---data--', data)
       const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
         method: "PUT",
         headers: {
