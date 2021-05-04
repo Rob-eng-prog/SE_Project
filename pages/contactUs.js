@@ -2,14 +2,15 @@ import { useState } from 'react';
 import { FormControl, Grid, Typography,OutlinedInput } from '@material-ui/core';
 import CallRoundedIcon from '@material-ui/icons/CallRounded';
 import MailOutlineRoundedIcon from '@material-ui/icons/MailOutlineRounded';
-import emailjs from 'emailjs-com'; //added
-import React from 'react'; //added
-import{ init } from 'emailjs-com'; //added
-init("user_9N61N11dP4hblxi4kmnxx"); //added
+import emailjs from 'emailjs-com'; //
+import React from 'react'; //
+import { init } from 'emailjs-com'; //
+
 
 
 
 import './ContactUs';
+init("user_9N61N11dP4hblxi4kmnxx"); //
 
 
     const Contact = () => {
@@ -20,18 +21,35 @@ import './ContactUs';
 
 
 
-    //export default function Contact() {
-        function sendEmail(e) {
-            e.preventDefault();
+    function sendEmail(e) {
 
-            emailjs.sendForm('service_zt8dzx9', 'template_045q5jk', e.target, 'user_9N61N11dP4hblxi4kmnxx')
-                .then((result) => {
-                    console.log('Email Sent successfully',result.text);
-                }, (error) => {
-                    console.log(error.text);
-                });
-                e.target.reset();
-            }
+        e.preventDefault();
+
+/* First Method
+        emailjs.send("service_zt8dzx9", "template_045q5jk", Contact, "user_9N61N11dP4hblxi4kmnxx")
+            .then((result) => {
+                console.log('Email sent successfully', result.status , result.text);
+            }, (error) => {
+                console.log('Failed to send the email...' , error.text);
+            });
+            e.target.reset();
+        
+        */
+       
+            
+        //Second Method
+
+        emailjs.send("service_zt8dzx9","template_045q5jk",{
+
+            name: name,
+
+            email: email,
+
+            message: message,
+            
+            });
+        
+        }
 
 
     
@@ -115,21 +133,5 @@ import './ContactUs';
 
 export default Contact;
 
-
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/* The function to use emailJS
-function sendEmail(e) {
-    e.preventDefault();
-
-    emailjs.sendForm('gmail', 'template_045q5jk', e.target, 'user_9N61N11dP4hblxi4kmnxx')
-      .then((result) => {
-          console.log('Email Sent successfully',result.text);
-      }, (error) => {
-          console.log(error.text);
-      });
-      e.target.reset();
-  }
-
-*/
 
  
