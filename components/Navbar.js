@@ -12,8 +12,13 @@ const Navbar = ({data}) => {
     
     //soon as component/page loads 
     useEffect((() => {
-        Setpname("/account/"+ localStorage.getItem("Current_Name"))
-        Setname(localStorage.getItem("Current_Name"))
+        if(localStorage.getItem("Current_Name") === null){
+            Setpname("/account")
+        }
+        else{
+            Setpname("/account/"+ localStorage.getItem("Current_Name"))
+            Setname(localStorage.getItem("Current_Name"))
+        }
     }),[]);
 
     const Logout = () => {
@@ -44,8 +49,18 @@ const Navbar = ({data}) => {
             </Link>
         </li>
         <li className = "p-2 m-2 hover:text-white">
+            <Link href= "/searchUser">
+                <a>Find users</a>
+            </Link>
+        </li>
+        <li className = "p-2 m-2 hover:text-white">
             <Link href="/about">
                 <a>About</a>
+            </Link>
+        </li>
+        <li className = "p-2 m-2 hover:text-white">
+            <Link href="/news">
+                <a>News</a>
             </Link>
         </li>
         <li className = "p-2 m-2 hover:text-white">

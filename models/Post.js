@@ -5,7 +5,6 @@ const PostSchema = new Schema({
     author: { //automatically created from localstorage
         type: String,
         required: [true, 'Please add a author'],
-        unique: true,
         maxlength: [40, 'Title cannot be more than 40 characters']
     },
     title: { //USER
@@ -49,4 +48,4 @@ const PostSchema = new Schema({
     }]
 })
 
-module.exports = mongoose.models.Post || mongoose.model('Post', PostSchema);
+module.exports = mongoose.models.Post || mongoose.model("Post", PostSchema);
