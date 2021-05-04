@@ -12,7 +12,7 @@ const Detail = ({ detail, id }) => {
 
   // comment
   const _comment = async () => {
-    let user = localStorage.getItem("user");
+    let user = localStorage.getItem("Current_Name");
     if (comment === "") {
       alert("Write comment...");
     } else if (!user) {
@@ -27,6 +27,7 @@ const Detail = ({ detail, id }) => {
           },
         ],
       };
+      console.log('---data--', data)
       const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
         method: "PUT",
         headers: {

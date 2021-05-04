@@ -11,6 +11,7 @@ import { useState, useEffect } from 'react';
   const[logged, setLogged] = useState(false)
   const router = useRouter();
   
+  console.log('---post ---', posts)
   const refreshData = () => {
     router.replace(router.asPath);
   };
