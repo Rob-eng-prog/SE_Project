@@ -40,11 +40,11 @@ const SingleUser = ({ user }) => {
                 <>
                     <h1>{user.name}</h1>
                     <p>{user.email}</p>
-                    <h1 className="text-4xl p-2 m-2 bg-gray-700">My post</h1>
+                    <h1 className="text-4xl p-2 m-2 bg-red-700 text-white">My post</h1>
                     {user.post.map(post => {
                         return(
                             <div key={post._id} className="p-3 border-black">
-                              <div className="p-4 m-3 bg-red-400">
+                              <div className="p-4 m-3 bg-red-700 text-white">
                                 <p className="text-md">{post.author}</p>
                                 <h1 className="text-2xl">{post.title}</h1>
                                 <h1 className="text-lg">{post.content}</h1>

@@ -1,14 +1,23 @@
 import Head from 'next/head';
 import Navbar from './Navbar';
 
-const Layout = ({ children }) => (
-    <>
+const Layout = (props) => (
+    <div>
         <Head>
-            <title>Plattsconnect</title>
+            <title>
+                Platts Connect
+            </title>
+            <link rel="stylesheet"
+            href="https://bootswatch.com/4/sketchy/bootstrap.min.css"/>
+
+        
         </Head>
         <Navbar/>
-        {children}
-    </>
-)
+        <div className="container">
+        {props.children }
+        </div>
+
+    </div>
+);
 
 export default Layout;

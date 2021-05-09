@@ -39,7 +39,7 @@ const SearchUser = () => {
                     
             </form>
             {data?
-            <div className="bg-red-500 m-2 p-2">
+            <div className="bg-red-700 m-2 p-2 text-white">
                 <h1 className="text-2xl">Info for {data.name}</h1>
                 <h1 className="text-xl">{data.email}</h1>
                 <h1 className="text-lg">{data.dateCreated}</h1>

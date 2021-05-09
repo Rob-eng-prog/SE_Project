@@ -9,7 +9,7 @@ import fetch from 'isomorphic-unfetch';
       {news.articles.map(article => {
         return(
           <div key={article.source._id} className="p-3 border-black">
-            <div className="p-4 m-3 bg-red-400">
+            <div className="p-4 m-3 bg-red-700 text-white">
               <p className="text-md">{article.author}</p>
               <h1 className="text-2xl">{article.title}</h1>
               <Link href={article.url}>

@@ -105,7 +105,7 @@ import { fromJSON } from 'postcss';
                         </div>
                         
                     </fieldset>
-                    <button className="m-auto w-full bg-red-800 rounded-md text-white mt-3 mb-2 h-10" type="submit">Post</button>
+                    <button className="m-auto w-full bg-red-700 rounded-md text-white mt-3 mb-2 h-10" type="submit">Post</button>
       </form> 
         
 

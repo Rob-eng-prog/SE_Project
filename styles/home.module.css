@@ -1,21 +1,21 @@
 .container {
-  border: 1px solid pink;
+  border: 1px solid #c8102E;
   border-radius: 5px;
   padding: 20px;
   margin: 10px 0px;
 }
 .container:hover {
-  box-shadow: 1px 1px 15px 1px #ccc;
+  box-shadow: 1px 1px 15px 1px #c8102E;
   border-width: 3px;
 }
 .title {
   font-size: 25px;
   font-weight: bold;
-  color: #f27071;
+  color: #c8102E;
   text-transform: uppercase;
 }
 .author {
-  color: #777;
+  color:#c8102E;
   font-size: 15px;
   font-style: italic;
 }
@@ -28,7 +28,7 @@
 .input {
   width: 80%;
   height: 50px;
-  border: 1px solid #ccc;
+  border: 1px solid #c8102E;
   outline: none;
   padding: 10px;
   border-radius: 5px;
@@ -36,16 +36,16 @@
 .btn {
   height: 50px;
   padding: 0px 20px;
-  background-color: #f27071;
+  background-color: #c8102E;
   border-radius: 5px;
   color: #fff;
   outline: none;
-  border: 1px solid #f27071;
+  border: 1px solid #c8102E;
   margin-left: 10px;
 }
 .btn:hover {
   cursor: pointer;
-  background-color: #d86363;
+  background-color: #c8102E;
   box-shadow: 1px 1px 5px #ccc;
 }
 .comment {
@@ -55,7 +55,7 @@
 .comText {
   font-size: 16px;
   color: #fff;
-  background-color: #f27071;
+  background-color: #c8102E;
   padding: 10px;
   margin: 5px 0px;
 }
@@ -74,15 +74,15 @@
   max-width: 550px;
 }
 .like {
-  border: 1px solid palevioletred;
+  border: 1px solid #c8102E;
   padding: 5px 10px;
   border-radius: 5px;
   outline: none;
 }
 .liked {
-  border: 1px solid palevioletred;
+  border: 1px solid #c8102E;
   padding: 5px 10px;
-  background-color: #f27071;
+  background-color: #c8102E;
   border-radius: 5px;
   outline: none;
 }

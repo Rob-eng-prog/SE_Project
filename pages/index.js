@@ -100,7 +100,7 @@ import { useState, useEffect } from 'react';
       <div>
         {logged
         ?
-        <div className = "p-2 m-2 bg-red-500 text-black">
+        <div className = "p-2 m-2 bg-red-700 text-white">
           <Link href="/createPost">
               <a>Create a Post</a>
           </Link>
@@ -109,7 +109,7 @@ import { useState, useEffect } from 'react';
         <div>
           <p className = "pb-2">You must be logged in to create a Post</p>
           <Link href="/login">
-            <a className = "p-2 pb-3 m-2 hover:text-red bg-red-500">Login</a>
+            <a className = "p-2 pb-3 m-2 hover:text-red bg-red-700 text-white">Login</a>
           </Link>
         </div>
     }
